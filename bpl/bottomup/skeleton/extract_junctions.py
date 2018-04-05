@@ -13,7 +13,7 @@
 #
 # Output
 # SN: [n x n boolean] extracted features.
-from bpl.bottomup.skeleton import bwmorph_endpoints
+from bpl.bottomup.skeleton.bwmorph import bwmorph_endpoints
 
 
 def extract_junctions(T):
@@ -21,7 +21,8 @@ def extract_junctions(T):
 
     SE = bwmorph_endpoints(T)
     SB = T # black pixels
-    sz = size(T, 1)
+    # sz = size(T, 1)
+    sz = T.size[0]
 
     lutS3 = makelut( @ (P) fS3(P), 3);
     S3 = applylut(T, lutS3);
